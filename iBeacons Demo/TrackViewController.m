@@ -24,14 +24,23 @@
 @property (strong, nonatomic) IBOutlet UILabel *statusLabel;
 @property (strong, nonatomic) IBOutlet UILabel *birthday;
 //////End facebook properties
-
+    
 @end
 
 @implementation TrackViewController
 @synthesize wqq, wqq_self;
 
 - (void)deleteUser:(NSNumber*)userId {
-    
+ 
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    NSString *urlAsString = [NSString stringWithFormat:@"http://mhacks-ios-backend.herokuapp.com/users/%@", userId];
+    NSURL *url = [[NSURL alloc] initWithString:urlAsString];
+    [request setURL:url];
+    [request setHTTPMethod:@"DELETE"];
+   
+    NSError *error;
+    NSURLResponse *response;
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 }
 
 - (void)registerUser:(WebQuery*)user {
@@ -43,10 +52,10 @@
                                      cachePolicy:NSURLRequestUseProtocolCachePolicy
                                      timeoutInterval:60.0];
     NSDictionary* jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"user", user.user,
-                                    @"name", user.name,
-                                    @"birthday", user.birthday,
-                                    @"keywords", user.keywords,
+                                    user.user, @"user",
+                                    user.name, @"name",
+                                    user.birthday, @"birthday",
+                                    user.keywords, @"keywords",
                                     nil];
     NSError *error;
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary
@@ -55,6 +64,13 @@
     [theRequest addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     [theRequest setHTTPBody:jsonData];
+    
+    NSURLResponse *response;
+    NSData* data = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:&response error:&error];
+    
+    
+    
+    
 }
 
 
@@ -330,6 +346,7 @@
     self.nameLabel.text = @"";
     self.statusLabel.text= @"You're not logged in!";
     self.birthday.text=@"";
+    [self deleteUser:self.userid];
 }
 
 // You need to override loginView:handleError in order to handle possible errors that can occur during login
