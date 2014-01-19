@@ -64,7 +64,7 @@
     self.locationManager.delegate = self;
     [self initRegion];
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
-    self.wqq_self = [self CallWebQuery: [[NSNumber alloc] initWithInt:2]];
+    self.wqq_self = [self CallWebQuery: [[NSNumber alloc] initWithInt:3]];
     [self initBeacon];
     [self transmitBeacon];
     //self.minorLabel.text = [self numberOfSectionsInTableView: tblView];
@@ -74,7 +74,7 @@
 - (void)initBeacon {
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"23542266-18D1-4FE4-B4A1-23F8195B9D39"];
     self.TbeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
-                                                                major:2
+                                                                major:3
                                                                 minor:1
                                                            identifier:@"com.devfright.myRegion"];
 }
@@ -206,6 +206,7 @@
     else return [self.diff count];
 }
 
+/*
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     UILabel *myLabel = [[UILabel alloc] init];
@@ -218,7 +219,7 @@
     
     return headerView;
 }
-
+*/
 
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if (section == 0)
