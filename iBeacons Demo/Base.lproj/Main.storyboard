@@ -172,22 +172,22 @@
                                     <outlet property="delegate" destination="6LL-F7-gTY" id="so1-9b-hox"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZU-2E-fmV">
-                                <rect key="frame" x="6" y="105" width="241" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZU-2E-fmV">
+                                <rect key="frame" x="6" y="139" width="241" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acw-Uq-guY">
-                                <rect key="frame" x="6" y="129" width="241" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You are not logged in!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acw-Uq-guY">
+                                <rect key="frame" x="6" y="121" width="241" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="birthday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOH-UK-yg6">
-                                <rect key="frame" x="6" y="153" width="241" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOH-UK-yg6">
+                                <rect key="frame" x="6" y="159" width="241" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -198,7 +198,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cAW-57-eh2" customClass="FBLoginView">
-                                <rect key="frame" x="65" y="70" width="191" height="36"/>
+                                <rect key="frame" x="65" y="70" width="191" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
@@ -211,11 +211,11 @@
                     <navigationItem key="navigationItem" id="lSv-YV-Ssh"/>
                     <connections>
                         <outlet property="beaconFoundLabel" destination="d1b-rE-bwu" id="FfE-jl-cet"/>
-                        <outlet property="birthday" destination="nOH-UK-yg6" id="b3l-e6-UVH"/>
+                        <outlet property="birthday" destination="nOH-UK-yg6" id="17k-QP-voN"/>
                         <outlet property="distanceLabel" destination="m7O-uB-gYC" id="P5S-kF-aUM"/>
-                        <outlet property="nameLabel" destination="mZU-2E-fmV" id="GoD-C9-fTz"/>
+                        <outlet property="nameLabel" destination="mZU-2E-fmV" id="zWO-tF-Rfi"/>
                         <outlet property="profilePictureView" destination="53X-Dl-CrX" id="lyN-1q-QtT"/>
-                        <outlet property="statusLabel" destination="acw-Uq-guY" id="WRX-CO-W10"/>
+                        <outlet property="statusLabel" destination="acw-Uq-guY" id="imG-u6-6bt"/>
                         <outlet property="tblView" destination="NzJ-Gs-kik" id="jht-JZ-6I0"/>
                     </connections>
                 </viewController>

@@ -24,7 +24,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *statusLabel;
 @property (strong, nonatomic) IBOutlet UILabel *birthday;
 //////End facebook properties
-    
+
 @end
 
 @implementation TrackViewController
