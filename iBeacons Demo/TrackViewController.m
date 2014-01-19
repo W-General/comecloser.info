@@ -321,14 +321,16 @@
     self.profilePictureView.profileID = user.id;
     self.nameLabel.text = user.name;
     self.birthday.text = user.birthday;
+    int value = [user.id intValue];
+    value = value % 65535;
     WebQuery *webQuery = [[WebQuery alloc] init];
-    webQuery.user = [NSNumber numberWithInt:[user.id intValue]];
+    webQuery.user = [NSNumber numberWithInt:value];
     webQuery.name = user.name;
     webQuery.birthday = user.birthday;
     //webQuery.keywords = user.keywords;
     
     [self registerUser:webQuery];
-    self.userid = [NSNumber numberWithInt:[user.id intValue]];
+    self.userid = [NSNumber numberWithInt:value];
     self.wqq_self = [self CallWebQuery: self.userid];
     [self initBeacon];
     [self transmitBeacon];
