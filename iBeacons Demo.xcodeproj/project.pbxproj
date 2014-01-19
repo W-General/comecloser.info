@@ -21,6 +21,11 @@
 		C9AF592117F5678D00792F91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AF590317F5678D00792F91 /* UIKit.framework */; };
 		C9AF592917F5678D00792F91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9AF592717F5678D00792F91 /* InfoPlist.strings */; };
 		C9AF592B17F5678D00792F91 /* iBeacons_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AF592A17F5678D00792F91 /* iBeacons_DemoTests.m */; };
+		C9AF593517F5679F00792F91 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AF593417F5679F00792F91 /* CoreLocation.framework */; };
+		C9AF593717F567A800792F91 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AF593617F567A800792F91 /* CoreBluetooth.framework */; };
+		C9AF593A17F56B4800792F91 /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AF593917F56B4800792F91 /* ConfigViewController.m */; };
+		C9AF593D17F5779200792F91 /* TrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AF593C17F5779200792F91 /* TrackViewController.m */; };
+		E33F6581188B1D85000012F7 /* WebQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = E33F6580188B1D85000012F7 /* WebQuery.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,14 @@
 		C9AF592617F5678D00792F91 /* iBeacons DemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iBeacons DemoTests-Info.plist"; sourceTree = "<group>"; };
 		C9AF592817F5678D00792F91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9AF592A17F5678D00792F91 /* iBeacons_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iBeacons_DemoTests.m; sourceTree = "<group>"; };
+		C9AF593417F5679F00792F91 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C9AF593617F567A800792F91 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		C9AF593817F56B4800792F91 /* ConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigViewController.h; sourceTree = "<group>"; };
+		C9AF593917F56B4800792F91 /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigViewController.m; sourceTree = "<group>"; };
+		C9AF593B17F5779200792F91 /* TrackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackViewController.h; sourceTree = "<group>"; };
+		C9AF593C17F5779200792F91 /* TrackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackViewController.m; sourceTree = "<group>"; };
+		E33F657F188B1D85000012F7 /* WebQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebQuery.h; sourceTree = "<group>"; };
+		E33F6580188B1D85000012F7 /* WebQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebQuery.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9AF593717F567A800792F91 /* CoreBluetooth.framework in Frameworks */,
+				C9AF593517F5679F00792F91 /* CoreLocation.framework in Frameworks */,
 				C9AF590217F5678D00792F91 /* CoreGraphics.framework in Frameworks */,
 				C9AF590417F5678D00792F91 /* UIKit.framework in Frameworks */,
 				C9AF590017F5678D00792F91 /* Foundation.framework in Frameworks */,
@@ -83,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				C9AF590517F5678D00792F91 /* iBeacons Demo */,
+				C9AF590617F5678D00792F91 /* Supporting Files */,
 				C9AF592417F5678D00792F91 /* iBeacons DemoTests */,
 				C9AF58FE17F5678D00792F91 /* Frameworks */,
 				C9AF58FD17F5678D00792F91 /* Products */,
@@ -101,6 +117,8 @@
 		C9AF58FE17F5678D00792F91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9AF593617F567A800792F91 /* CoreBluetooth.framework */,
+				C9AF593417F5679F00792F91 /* CoreLocation.framework */,
 				C9AF58FF17F5678D00792F91 /* Foundation.framework */,
 				C9AF590117F5678D00792F91 /* CoreGraphics.framework */,
 				C9AF590317F5678D00792F91 /* UIKit.framework */,
@@ -117,8 +135,12 @@
 				C9AF591117F5678D00792F91 /* Main.storyboard */,
 				C9AF591417F5678D00792F91 /* ViewController.h */,
 				C9AF591517F5678D00792F91 /* ViewController.m */,
-				C9AF591717F5678D00792F91 /* Images.xcassets */,
-				C9AF590617F5678D00792F91 /* Supporting Files */,
+				E33F657F188B1D85000012F7 /* WebQuery.h */,
+				E33F6580188B1D85000012F7 /* WebQuery.m */,
+				C9AF593817F56B4800792F91 /* ConfigViewController.h */,
+				C9AF593917F56B4800792F91 /* ConfigViewController.m */,
+				C9AF593B17F5779200792F91 /* TrackViewController.h */,
+				C9AF593C17F5779200792F91 /* TrackViewController.m */,
 			);
 			path = "iBeacons Demo";
 			sourceTree = "<group>";
@@ -126,12 +148,14 @@
 		C9AF590617F5678D00792F91 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C9AF591717F5678D00792F91 /* Images.xcassets */,
 				C9AF590717F5678D00792F91 /* iBeacons Demo-Info.plist */,
 				C9AF590817F5678D00792F91 /* InfoPlist.strings */,
 				C9AF590B17F5678D00792F91 /* main.m */,
 				C9AF590D17F5678D00792F91 /* iBeacons Demo-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = "iBeacons Demo";
 			sourceTree = "<group>";
 		};
 		C9AF592417F5678D00792F91 /* iBeacons DemoTests */ = {
@@ -249,9 +273,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9AF593D17F5779200792F91 /* TrackViewController.m in Sources */,
 				C9AF591617F5678D00792F91 /* ViewController.m in Sources */,
 				C9AF591017F5678D00792F91 /* AppDelegate.m in Sources */,
+				C9AF593A17F56B4800792F91 /* ConfigViewController.m in Sources */,
 				C9AF590C17F5678D00792F91 /* main.m in Sources */,
+				E33F6581188B1D85000012F7 /* WebQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +487,7 @@
 				C9AF593017F5678D00792F91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9AF593117F5678D00792F91 /* Build configuration list for PBXNativeTarget "iBeacons DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +496,7 @@
 				C9AF593317F5678D00792F91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
