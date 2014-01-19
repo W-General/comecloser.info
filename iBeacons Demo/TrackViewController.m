@@ -100,7 +100,9 @@
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
     // Create a FBLoginView to log the user in with basic, email and likes permissions
     // You should ALWAYS ask for basic permissions (basic_info) when logging the user in
-    FBLoginView *loginView = [[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email", @"user_likes", @"user_birthday", @"user_interests", @"user_location", @"user_hometown"]];
+    //FBLoginView *loginView = [[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email", @"user_likes", @"user_birthday", @"user_interests", @"user_location", @"user_hometown"]];
+    FBLoginView *loginView = [[FBLoginView alloc] init];
+    loginView.readPermissions = @[@"basic_info", @"email", @"user_likes", @"user_birthday", @"user_interests", @"user_location", @"user_hometown"];
     
     // Set this loginUIViewController to be the loginView button's delegate
     //loginView.delegate = self;
