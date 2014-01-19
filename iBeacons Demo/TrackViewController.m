@@ -322,7 +322,7 @@
     self.nameLabel.text = user.name;
     self.birthday.text = user.birthday;
     int value = [user.id intValue];
-    value = value % 65535;
+    value = value % 50;
     WebQuery *webQuery = [[WebQuery alloc] init];
     webQuery.user = [NSNumber numberWithInt:value];
     webQuery.name = user.name;
@@ -348,7 +348,7 @@
     self.nameLabel.text = @"";
     self.statusLabel.text= @"You're not logged in!";
     self.birthday.text=@"";
-    [self deleteUser:self.userid];
+//    [self deleteUser:self.userid];
 }
 
 // You need to override loginView:handleError in order to handle possible errors that can occur during login
