@@ -145,7 +145,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gh5-hn-3Uu">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Birthday:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gh5-hn-3Uu">
                                 <rect key="frame" x="66" y="211" width="72" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -211,8 +211,7 @@
                     <navigationItem key="navigationItem" id="lSv-YV-Ssh"/>
                     <connections>
                         <outlet property="beaconFoundLabel" destination="d1b-rE-bwu" id="FfE-jl-cet"/>
-                        <outlet property="birthday" destination="nOH-UK-yg6" id="17k-QP-voN"/>
-                        <outlet property="distanceLabel" destination="m7O-uB-gYC" id="P5S-kF-aUM"/>
+                        <outlet property="birthday" destination="m7O-uB-gYC" id="yvx-5k-fd2"/>
                         <outlet property="nameLabel" destination="mZU-2E-fmV" id="zWO-tF-Rfi"/>
                         <outlet property="profilePictureView" destination="53X-Dl-CrX" id="lyN-1q-QtT"/>
                         <outlet property="statusLabel" destination="acw-Uq-guY" id="imG-u6-6bt"/>

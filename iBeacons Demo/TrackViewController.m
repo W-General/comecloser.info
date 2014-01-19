@@ -216,16 +216,7 @@
     //self.minorLabel.text = [NSString stringWithFormat:@"%@", beacon.minor];
     //self.minorLabel.text = self.wqq.firstname;
     //self.accuracyLabel.text = [NSString stringWithFormat:@"%f", beacon.accuracy];
-    if (beacon.proximity == CLProximityUnknown) {
-        self.distanceLabel.text = @"Unknown Proximity";
-    } else if (beacon.proximity == CLProximityImmediate) {
-        self.distanceLabel.text = @"Immediate";
-    } else if (beacon.proximity == CLProximityNear) {
-        self.distanceLabel.text = @"Near";
-    } else if (beacon.proximity == CLProximityFar) {
-        self.distanceLabel.text = @"Far";
-    }
-    //self.rssiLabel.text = [NSString stringWithFormat:@"%i", beacon.rssi];
+       //self.rssiLabel.text = [NSString stringWithFormat:@"%i", beacon.rssi];
     
 }
 
@@ -329,7 +320,7 @@
     webQuery.birthday = user.birthday;
     //webQuery.keywords = user.keywords;
     
-    [self registerUser:webQuery];
+//    [self registerUser:webQuery];
     self.userid = [NSNumber numberWithInt:value];
     self.wqq_self = [self CallWebQuery: self.userid];
     [self initBeacon];
