@@ -11,8 +11,8 @@
 @interface WebQuery : NSObject
 
 @property NSNumber *user;
-@property NSString *firstname;
-@property NSString *lastname;
-@property NSArray *keyowords;
+@property NSString *name;
+@property NSString *birthday;
+@property NSArray *keywords;
 -(void)WebQuery:(NSNumber*)user;
 @end

@@ -30,6 +30,33 @@
 @implementation TrackViewController
 @synthesize wqq, wqq_self;
 
+- (void)deleteUser:(NSNumber*)userId {
+    
+}
+
+- (void)registerUser:(WebQuery*)user {
+    NSString *urlAsString = [NSString stringWithFormat:@"http://mhacks-ios-backend.herokuapp.com/users"];
+    NSURL *url = [[NSURL alloc] initWithString:urlAsString];
+    
+    NSMutableURLRequest *theRequest=[NSMutableURLRequest
+                                     requestWithURL:url
+                                     cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                     timeoutInterval:60.0];
+    NSDictionary* jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    @"user", user.user,
+                                    @"name", user.name,
+                                    @"birthday", user.birthday,
+                                    @"keywords", user.keywords,
+                                    nil];
+    NSError *error;
+    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary
+                                                       options:NSJSONWritingPrettyPrinted error:&error];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest setHTTPBody:jsonData];
+}
+
 
 - (WebQuery*)getUser:(NSNumber*)userId
 {
@@ -40,10 +67,10 @@
     NSHTTPURLResponse *responseCode = nil;
     NSData *data = [NSURLConnection sendSynchronousRequest:[[NSURLRequest alloc] initWithURL:url] returningResponse:&responseCode error:&error];
     NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    user.firstname = [JSON objectForKey:@"firstname"];
-    user.lastname = [JSON objectForKey:@"lastname"];
+    user.name = [JSON objectForKey:@"name"];
+    user.birthday = [JSON objectForKey:@"birthday"];
     user.user = [JSON objectForKey:@"user"];
-    user.keyowords = [JSON objectForKey:@"keywords"];
+    user.keywords = [JSON objectForKey:@"keywords"];
     
     return user;
 }
@@ -60,7 +87,7 @@
     wq.user = user;
     wq.firstname = [NSString stringWithFormat:@"Eric"];
     wq.lastname = [NSString stringWithFormat:@"Yu"];
-    wq.keyowords = [NSArray arrayWithObjects: @"Programming", @"Test1", @"Test2", nil];
+    wq.keywords = [NSArray arrayWithObjects: @"Programming", @"Test1", @"Test2", nil];
     return wq;
 }
 
@@ -154,7 +181,7 @@
         NSString* tmp = [wqq.firstname stringByAppendingString:[NSString stringWithFormat:@" "]];
         self.beaconFoundLabel.text = [tmp stringByAppendingString:wqq.lastname];
         
-        [self tableView: self.wqq_self.keyowords commDiffKeywords:self.wqq.keyowords];
+        [self tableView: self.wqq_self.keyowords commDiffKeywords:self.wqq.keywords];
         
         // Use here to update
     }
@@ -164,7 +191,7 @@
         self.wqq.user = nil;
         self.wqq.firstname = nil;
         self.wqq.lastname = nil;
-        self.wqq.keyowords = nil;
+        self.wqq.keywords = nil;
         self.common = nil;
         self.diff = nil;
         [self.tblView reloadData];
@@ -279,6 +306,13 @@
     self.profilePictureView.profileID = user.id;
     self.nameLabel.text = user.name;
     self.birthday.text = user.birthday;
+    WebQuery *webQuery = [[WebQuery alloc] init];
+    webQuery.user = user.id;
+    webQuery.name = user.name;
+    webQuery.birthday = user.birthday;
+    //webQuery.keywords = user.keywords;
+    
+    [self registerUser:webQuery];
     
     self.userid = [NSNumber numberWithInt:[user.id intValue]];
     self.wqq_self = [self CallWebQuery: self.userid];
