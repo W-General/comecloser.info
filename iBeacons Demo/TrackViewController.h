@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface TrackViewController : UIViewController <CLLocationManagerDelegate, UITableViewDelegate,CBPeripheralManagerDelegate>
+@interface TrackViewController : UIViewController <CLLocationManagerDelegate, UITableViewDelegate,CBPeripheralManagerDelegate, FBLoginViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *beaconFoundLabel;
 @property (weak, nonatomic) IBOutlet UILabel *proximityUUIDLabel;
