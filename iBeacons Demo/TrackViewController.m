@@ -85,8 +85,7 @@
 {
     WebQuery* wq = [[WebQuery alloc] init];
     wq.user = user;
-    wq.firstname = [NSString stringWithFormat:@"Eric"];
-    wq.lastname = [NSString stringWithFormat:@"Yu"];
+    wq.name = [NSString stringWithFormat:@"Eric"];
     wq.keywords = [NSArray arrayWithObjects: @"Programming", @"Test1", @"Test2", nil];
     return wq;
 }
@@ -178,10 +177,9 @@
         // Simulated WebQuery
         self.wqq = [self CallWebQuery: beacon.major];
         [self.tblView reloadData];
-        NSString* tmp = [wqq.firstname stringByAppendingString:[NSString stringWithFormat:@" "]];
-        self.beaconFoundLabel.text = [tmp stringByAppendingString:wqq.lastname];
+        self.beaconFoundLabel.text = self.wqq.name;
         
-        [self tableView: self.wqq_self.keyowords commDiffKeywords:self.wqq.keywords];
+        [self tableView: self.wqq_self.keywords commDiffKeywords:self.wqq.keywords];
         
         // Use here to update
     }
@@ -189,8 +187,7 @@
     {
         self.beaconFoundLabel.text = @"Unknown";
         self.wqq.user = nil;
-        self.wqq.firstname = nil;
-        self.wqq.lastname = nil;
+        self.wqq.name = nil;
         self.wqq.keywords = nil;
         self.common = nil;
         self.diff = nil;
@@ -307,13 +304,12 @@
     self.nameLabel.text = user.name;
     self.birthday.text = user.birthday;
     WebQuery *webQuery = [[WebQuery alloc] init];
-    webQuery.user = user.id;
+    webQuery.user = [NSNumber numberWithInt:[user.id intValue]];
     webQuery.name = user.name;
     webQuery.birthday = user.birthday;
     //webQuery.keywords = user.keywords;
     
     [self registerUser:webQuery];
-    
     self.userid = [NSNumber numberWithInt:[user.id intValue]];
     self.wqq_self = [self CallWebQuery: self.userid];
     [self initBeacon];
