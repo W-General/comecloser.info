@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AEDCB7D9188BAEAD0092C422 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDCB7D8188BAEAD0092C422 /* FacebookSDK.framework */; };
 		C9AF590017F5678D00792F91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AF58FF17F5678D00792F91 /* Foundation.framework */; };
 		C9AF590217F5678D00792F91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AF590117F5678D00792F91 /* CoreGraphics.framework */; };
 		C9AF590417F5678D00792F91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AF590317F5678D00792F91 /* UIKit.framework */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AEDCB7D8188BAEAD0092C422 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		C9AF58FC17F5678D00792F91 /* iBeacons Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iBeacons Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9AF58FF17F5678D00792F91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9AF590117F5678D00792F91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEDCB7D9188BAEAD0092C422 /* FacebookSDK.framework in Frameworks */,
 				C9AF593717F567A800792F91 /* CoreBluetooth.framework in Frameworks */,
 				C9AF593517F5679F00792F91 /* CoreLocation.framework in Frameworks */,
 				C9AF590217F5678D00792F91 /* CoreGraphics.framework in Frameworks */,
@@ -117,6 +120,7 @@
 		C9AF58FE17F5678D00792F91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEDCB7D8188BAEAD0092C422 /* FacebookSDK.framework */,
 				C9AF593617F567A800792F91 /* CoreBluetooth.framework */,
 				C9AF593417F5679F00792F91 /* CoreLocation.framework */,
 				C9AF58FF17F5678D00792F91 /* Foundation.framework */,
@@ -405,6 +409,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ericyu/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iBeacons Demo/iBeacons Demo-Prefix.pch";
 				INFOPLIST_FILE = "iBeacons Demo/iBeacons Demo-Info.plist";
@@ -418,6 +426,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ericyu/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iBeacons Demo/iBeacons Demo-Prefix.pch";
 				INFOPLIST_FILE = "iBeacons Demo/iBeacons Demo-Info.plist";
