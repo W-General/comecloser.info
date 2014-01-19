@@ -15,6 +15,8 @@
 @property WebQuery* wqq_self;
 @property NSMutableArray* common;
 @property NSMutableArray* diff;
+@property NSNumber* userid;
+
 
 ///////Facebook properties
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *profilePictureView;
@@ -70,9 +72,6 @@
     self.locationManager.delegate = self;
     [self initRegion];
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
-    self.wqq_self = [self CallWebQuery: [[NSNumber alloc] initWithInt:3]];
-    [self initBeacon];
-    [self transmitBeacon];
     // Create a FBLoginView to log the user in with basic, email and likes permissions
     // You should ALWAYS ask for basic permissions (basic_info) when logging the user in
     FBLoginView *loginView = [[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email", @"user_likes", @"user_birthday", @"user_interests", @"user_location", @"user_hometown"]];
@@ -97,8 +96,9 @@
 
 - (void)initBeacon {
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"23542266-18D1-4FE4-B4A1-23F8195B9D39"];
+    int number = [self.userid integerValue];
     self.TbeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
-                                                                major:3
+                                                                major:number
                                                                 minor:1
                                                            identifier:@"com.devfright.myRegion"];
 }
@@ -279,6 +279,11 @@
     self.profilePictureView.profileID = user.id;
     self.nameLabel.text = user.name;
     self.birthday.text = user.birthday;
+    
+    self.userid = [NSNumber numberWithInt:[user.id intValue]];
+    self.wqq_self = [self CallWebQuery: self.userid];
+    [self initBeacon];
+    [self transmitBeacon];
     
 }
 
