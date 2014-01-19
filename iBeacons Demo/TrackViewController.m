@@ -13,8 +13,8 @@
 
 @property WebQuery* wqq;
 @property WebQuery* wqq_self;
-@property NSArray* common;
-@property NSArray* diff;
+@property NSMutableArray* common;
+@property NSMutableArray* diff;
 
 
 @end
@@ -64,10 +64,38 @@
     self.locationManager.delegate = self;
     [self initRegion];
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
-    self.wqq_self = [self CallWebQuery: [[NSNumber alloc] initWithInt:1]];
+    self.wqq_self = [self CallWebQuery: [[NSNumber alloc] initWithInt:2]];
+    [self initBeacon];
+    [self transmitBeacon];
     //self.minorLabel.text = [self numberOfSectionsInTableView: tblView];
     //[self.tblView reloadData];
 }
+
+- (void)initBeacon {
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"23542266-18D1-4FE4-B4A1-23F8195B9D39"];
+    self.TbeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
+                                                                major:2
+                                                                minor:1
+                                                           identifier:@"com.devfright.myRegion"];
+}
+
+- (void)transmitBeacon {
+    self.beaconPeripheralData = [self.TbeaconRegion peripheralDataWithMeasuredPower:nil];
+    self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
+                                                                     queue:nil
+                                                                   options:nil];
+}
+
+-(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
+    if (peripheral.state == CBPeripheralManagerStatePoweredOn) {
+        NSLog(@"Powered On");
+        [self.peripheralManager startAdvertising:self.beaconPeripheralData];
+    } else if (peripheral.state == CBPeripheralManagerStatePoweredOff) {
+        NSLog(@"Powered Off");
+        [self.peripheralManager stopAdvertising];
+    }
+}
+
 
 - (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
@@ -148,19 +176,24 @@
 
 - (void)tableView:(NSArray *)keywords_self commDiffKeywords:(NSArray *)keywords_other {
     
-    NSArray* testMine = [NSArray arrayWithObjects: @"Programming", @"Test1", @"Test2", nil];
-    NSArray* testOthers = [NSArray arrayWithObjects: @"Programming", @"Test1", nil];
+    //NSArray* testMine = [NSArray arrayWithObjects: @"Programming", @"Test1", @"Test2", nil];
+    //NSArray* testOthers = [NSArray arrayWithObjects: @"Programming", @"Test1", nil];
+    self.diff = [NSMutableArray new];
+    self.common = [NSMutableArray new];
+    
+    /*
+    for ( NSString * kw in testOthers)
+        [self.diff addObject:kw];
+    for ( NSString * kw in testMine)
+        [self.common addObject:kw];*/
     
     
-    self.diff = testOthers;
-    self.common = testMine;
-    
-    for(NSString * kw in testOthers) {
-        NSInteger idx = [testMine indexOfObject:kw];
-        //if (idx != NSNotFound){
-        //    [self.common addObject:kw];
-        //}//add ot common
-        //else [self.diff addObject:kw];//add to diff;
+    for(NSString * kw in keywords_other) {
+        NSInteger idx = [keywords_self indexOfObject:kw];
+        if (idx != NSNotFound){
+            [self.common addObject:kw];
+        }//add ot common
+        else [self.diff addObject:kw];//add to diff;
     }
     
 }
@@ -171,6 +204,19 @@
     if (section == 0)
         return [self.common count];
     else return [self.diff count];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UILabel *myLabel = [[UILabel alloc] init];
+    myLabel.frame = CGRectMake(20, 8, 320, 20);
+    myLabel.font = [UIFont boldSystemFontOfSize:18];
+    myLabel.text = [self tableView:tableView titleForHeaderInSection:section];
+    
+    UIView *headerView = [[UIView alloc] init];
+    [headerView addSubview:myLabel];
+    
+    return headerView;
 }
 
 
