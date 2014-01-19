@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 
-@interface TrackViewController : UIViewController <CLLocationManagerDelegate, UITableViewDelegate>
+@interface TrackViewController : UIViewController <CLLocationManagerDelegate, UITableViewDelegate,CBPeripheralManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *beaconFoundLabel;
 @property (weak, nonatomic) IBOutlet UILabel *proximityUUIDLabel;
@@ -22,5 +23,9 @@
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+
+@property (strong, nonatomic) CLBeaconRegion *TbeaconRegion;
+@property (strong, nonatomic) NSDictionary *beaconPeripheralData;
+@property (strong, nonatomic) CBPeripheralManager *peripheralManager;
 
 @end
