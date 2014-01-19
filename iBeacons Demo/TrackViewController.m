@@ -216,6 +216,7 @@
     //self.minorLabel.text = [NSString stringWithFormat:@"%@", beacon.minor];
     //self.minorLabel.text = self.wqq.firstname;
     //self.accuracyLabel.text = [NSString stringWithFormat:@"%f", beacon.accuracy];
+        self.birthday.text = wqq.birthday;
        //self.rssiLabel.text = [NSString stringWithFormat:@"%i", beacon.rssi];
     
 }
@@ -311,7 +312,6 @@
                             user:(id<FBGraphUser>)user {
     self.profilePictureView.profileID = user.id;
     self.nameLabel.text = user.name;
-    self.birthday.text = user.birthday;
     int value = [user.id intValue];
     value = value % 50;
     WebQuery *webQuery = [[WebQuery alloc] init];
