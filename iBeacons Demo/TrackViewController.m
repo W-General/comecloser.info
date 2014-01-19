@@ -198,12 +198,13 @@
         self.beaconFoundLabel.text = self.wqq.name;
         
         [self tableView: self.wqq_self.keywords commDiffKeywords:self.wqq.keywords];
-        
+        self.birthday.text = wqq.birthday;
         // Use here to update
     }
     else
     {
         self.beaconFoundLabel.text = @"Unknown";
+        self.birthday.text = @"Unknown";
         self.wqq.user = nil;
         self.wqq.name = nil;
         self.wqq.keywords = nil;
@@ -216,7 +217,7 @@
     //self.minorLabel.text = [NSString stringWithFormat:@"%@", beacon.minor];
     //self.minorLabel.text = self.wqq.firstname;
     //self.accuracyLabel.text = [NSString stringWithFormat:@"%f", beacon.accuracy];
-        self.birthday.text = wqq.birthday;
+    
        //self.rssiLabel.text = [NSString stringWithFormat:@"%i", beacon.rssi];
     
 }
